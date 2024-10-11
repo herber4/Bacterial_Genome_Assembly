@@ -179,11 +179,16 @@ medaka_consensus -i 4_reads.fastq -d 7_final_consensus.fasta -o ./medaka -t 8 --
 cat cluster_*/medaka/medaka_consensus > medaka_consensus.fasta
 
 
+
+# trim short reads with bbduk
+bbduk.sh -Xmx64g in1=${i}_R1.fastq.gz in2=${i}_R2.fastq.gz out1=CuR_R1_clean.fastq.gz out2=CuR_R2_clean.fastq.gz ref=/data2/databases/rrna_si
+lva/ribokmers.fa,adapters.fa tbo tpe ktrim=r k=31 refstats=$i.txt hdist=1 qtrim=rl trimq=15 minlength=75 maxns=1 threads=auto
+
+
 # here i will do polypolish
 mamba install bioconda::polypolish
 
 ml bwa
-
 bwa index medaka_consensus.fasta
 bwa mem -t 8 -a medaka_consensus.fasta CuR_R1_clean.fastq.gz > alignments_1.sam
 bwa mem -t 8 -a medaka_consensus.fasta CuR_R2_clean.fastq.gz > alignments_2.sam
