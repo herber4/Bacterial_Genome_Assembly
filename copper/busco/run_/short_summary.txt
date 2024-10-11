@@ -1,0 +1,19 @@
+# BUSCO version is: 5.2.2 
+# The lineage dataset is:  (Creation date: 2024-01-08, number of genomes: 80, number of BUSCOs: 1152)
+# Summarized benchmarking in BUSCO notation for file /data2/lackey_lab/austin/peach/new_copper/tri/trycycler/qc/polypolished_consensus.fasta
+# BUSCO was run in mode: genome
+# Gene predictor used: prodigal
+
+	***** Results: *****
+
+	C:99.9%[S:99.9%,D:0.0%],F:0.1%,M:0.0%,n:1152	   
+	1151	Complete BUSCOs (C)			   
+	1151	Complete and single-copy BUSCOs (S)	   
+	0	Complete and duplicated BUSCOs (D)	   
+	1	Fragmented BUSCOs (F)			   
+	0	Missing BUSCOs (M)			   
+	1152	Total BUSCO groups searched		   
+
+Dependencies and versions:
+	hmmsearch: 3.1
+	prodigal: 2.6.3
